@@ -20,7 +20,7 @@ Un sistema generativo di dibattito tra due intelligenze artificiali, completamen
 1. **Clona il repository:**
    ```powershell
    git clone https://github.com/tuo-utente/ai-debate.git
-   cd ai-debate
+   cd italian-ai-debate
    ```
 2. **Installa le dipendenze:**
    ```powershell
