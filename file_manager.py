@@ -155,14 +155,12 @@ class FileManager:
         metadata = conversation_data.get('metadata', {})
         conversation = conversation_data.get('conversation', [])
         
-        # Conteggi per AI
         ai1_name = metadata.get('participants', {}).get('ai1', {}).get('name', 'AI1')
         ai2_name = metadata.get('participants', {}).get('ai2', {}).get('name', 'AI2')
         
         ai1_messages = [entry for entry in conversation if entry.get('speaker') == ai1_name]
         ai2_messages = [entry for entry in conversation if entry.get('speaker') == ai2_name]
         total_characters = metadata.get('total_characters', 0)
-        # Stima durata in secondi (20 caratteri/sec)
         estimated_duration_sec = int(total_characters / 20) if total_characters else 0
         
         return {

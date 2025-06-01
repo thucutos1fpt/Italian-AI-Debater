@@ -5,7 +5,7 @@ Manager principale per gestire le conversazioni AI
 import time
 from typing import Dict, Optional
 from config import Config
-from api_client import LMStudioAPIClient
+from api_client import get_api_client
 from generators import AIGenerators
 from personalities import PersonalityManager
 from ui_manager import UIManager
@@ -16,14 +16,12 @@ class ConversationManager:
     
     def __init__(self):
         """Inizializza il manager della conversazione"""
-        # Componenti principali
-        self.api_client = LMStudioAPIClient()
+        self.api_client = get_api_client()
         self.generators = AIGenerators(self.api_client)
         self.personality_manager = PersonalityManager(self.api_client)
         self.ui = UIManager()
         self.file_manager = FileManager()
         
-        # Stato della conversazione
         self.conversation_history = []
         self.topic = None
         self.ai1_name = None

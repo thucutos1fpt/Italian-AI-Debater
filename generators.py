@@ -21,7 +21,7 @@ class AIGenerators:
     
     def generate_topic(self) -> Optional[str]:
         """
-        Genera un topic casuale per la conversazione
+        Genera un topic casuale per la conversazione, con maggiore varietà, creatività e originalità
         
         Returns:
             Topic generato o None in caso di errore
@@ -30,32 +30,40 @@ class AIGenerators:
         
         messages = [
             {
-                "role": "system", 
-                "content": "Sei un generatore di argomenti di conversazione stimolanti che copre TUTTI i campi del sapere umano."
+                "role": "system",
+                "content": (
+                    "Sei un generatore di argomenti di conversazione ESTREMAMENTE creativo, sorprendente e originale. "
+                    "La tua missione è proporre argomenti che siano insoliti, interdisciplinari, provocatori, universali o anche astratti, "
+                    "spaziando tra scienza, arte, filosofia, futuro, misteri, paradossi, cultura pop, etica, tecnologia, natura, psicologia, storia, società, e altro. "
+                    "Evita argomenti banali, già sentiti o troppo specifici. "
+                    "Cerca sempre la massima varietà e novità."
+                )
             },
             {
-                "role": "user", 
+                "role": "user",
                 "content": f"""Genera UN SOLO argomento di conversazione che sia:
-- Specifico e ben definito
-- Che stimoli opinioni diverse e dibattito
-- Interessante da discutere
-- Da QUALSIASI campo: {fields_list}, etc.
+- Originale, sorprendente o fuori dagli schemi
+- Adatto a stimolare opinioni diverse e dibattito
+- Possibilmente interdisciplinare o universale
+- Da QUALSIASI campo: {fields_list}, ma anche combinando più campi
 
 Rispondi SOLO con l'argomento, niente altro. Mantienilo sotto le {Config.TOPIC_MAX_WORDS} parole.
 
 Esempi di varietà:
-- L'impatto della musica classica sulla produttività lavorativa
-- Il ruolo dei sogni nella risoluzione dei problemi creativi  
-- L'influenza dei colori sull'umore e le decisioni quotidiane
-- Il futuro dell'esplorazione spaziale privata vs pubblica
-- L'arte culinaria come forma di espressione culturale
-- La solitudine nell'era dei social media"""
+- Se la memoria potesse essere trasferita tra esseri umani, cosa cambierebbe nella società?
+- L'esistenza di universi paralleli può influenzare le nostre scelte morali?
+- L'arte generata da intelligenze artificiali può essere davvero considerata "creativa"?
+- Il tempo è una costruzione della mente o una realtà oggettiva?
+- Le emozioni degli animali sono paragonabili a quelle umane?
+- Cosa accadrebbe se la privacy non esistesse più in nessuna forma?
+- Il linguaggio plasma la realtà o la realtà plasma il linguaggio?
+- L'immortalità sarebbe un dono o una condanna?"""
             }
         ]
         
         topic = self.api_client.call_api(
-            messages, 
-            temperature=Config.TOPIC_GENERATION_TEMPERATURE
+            messages,
+            temperature=1.2  # temperatura più alta per massima creatività
         )
         
         if topic:
@@ -66,7 +74,7 @@ Esempi di varietà:
     
     def generate_ai_profiles(self, topic: str) -> Optional[Tuple[Dict, Dict]]:
         """
-        Genera nomi e personalità per entrambe le AI con personalità contrastanti
+        Genera nomi e personalità per entrambe le AI con personalità contrastanti, in modo più creativo e vario ma mantenendo la struttura e il parsing attuale.
         
         Args:
             topic: Topic della conversazione
@@ -76,48 +84,46 @@ Esempi di varietà:
         """
         messages = [
             {
-                "role": "system", 
-                "content": "Sei un creatore esperto di personalità AI OPPOSTE e CONTRASTANTI. Crei personalità che si scontrano in ogni aspetto."
+                "role": "system",
+                "content": (
+                    "Sei un creatore di personalità AI molto creativo e fantasioso. "
+                    "Genera sempre due AI con nomi evocativi, anche inventati, e personalità radicalmente opposte. "
+                    "Le personalità devono essere originali, memorabili, ispirate anche a concetti astratti, mitologici, filosofici, artistici, scientifici, letterari, ecc. "
+                    "Evita nomi e descrizioni banali o troppo simili. "
+                    "La seconda AI deve essere sempre l'opposto della prima in ogni aspetto. "
+                    "Rispetta SEMPRE il formato richiesto."
+                )
             },
             {
-                "role": "user", 
+                "role": "user",
                 "content": f"""Crea due personalità AI COMPLETAMENTE OPPOSTE per discutere di: {topic}
 
-Le personalità devono essere DIAMETRALMENTE OPPOSTE in:
-- Visione del mondo (ottimista vs pessimista)
-- Approccio al pensiero (logico vs emotivo)
-- Stile comunicativo (diretto vs diplomatico)
-- Atteggiamento (conservatore vs progressista)
-- Metodologia (pratico vs teorico)
-- Temperamento (calmo vs passionale)
-
 Per ogni AI genera:
-1. Un nome semplice (solo nome proprio, niente asterischi)
-2. Una personalità distintiva in massimo {Config.PERSONALITY_MAX_WORDS} parole che evidenzi il CONTRASTO
-3. Un approccio comunicativo in {Config.STYLE_MAX_WORDS} parole
+1. Un nome evocativo, originale, anche inventato (no nomi comuni, no asterischi)
+2. Una personalità distintiva e sorprendente (max {Config.PERSONALITY_MAX_WORDS} parole) che rappresenti un estremo
+3. Uno stile comunicativo unico (max {Config.STYLE_MAX_WORDS} parole)
 
-FORMATO RICHIESTO (rispetta esattamente):
-NOME1: [nome semplice]
+Le due AI devono essere in TOTALE CONTRASTO tra loro su:
+- Visione del mondo (es: razionale vs mistica, ottimista vs nichilista, umano-centrica vs aliena, ecc)
+- Approccio (logico vs intuitivo, pragmatico vs visionario, ecc)
+- Stile comunicativo (diretto vs enigmatico, poetico vs tecnico, ecc)
+- Valori, emozioni, atteggiamento, metodo, ecc
+
+Rispetta questo formato:
+NOME1: [nome evocativo]
 PERSONALITA1: [descrizione che enfatizza un estremo]
 STILE1: [stile comunicativo]
-NOME2: [nome semplice]
+NOME2: [nome evocativo opposto]
 PERSONALITA2: [descrizione che enfatizza l'estremo opposto]
-STILE2: [stile comunicativo opposto]
-
-Esempio di contrasto:
-- AI1: Razionale, analitica, fredda, basata sui dati
-- AI2: Emotiva, intuitiva, calorosa, basata sull'esperienza umana"""
+STILE2: [stile comunicativo opposto]"""
             }
         ]
-        
         response = self.api_client.call_api(
-            messages, 
-            temperature=Config.PERSONALITY_TEMPERATURE
+            messages,
+            temperature=0.9  # temperatura alta per creatività e contrasto
         )
-        
         if not response:
             return None
-            
         return self._parse_ai_profiles(response)
     
     def _parse_ai_profiles(self, response: str) -> Optional[Tuple[Dict, Dict]]:

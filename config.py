@@ -87,14 +87,21 @@ class Config:
         "passato", "creatività", "lavoro", "relazioni", "ambiente"
     ]
     
-    # === VERSION INFO ===
-    VERSION = "2.2"
-    VERSION_NAME = "Modular"
-    
+    # === PROVIDER SETTINGS ===
+    PROVIDER = "lmstudio"  # Opzioni: "lmstudio", "openai", "deepseek", "ollama"
+    # OpenAI
+    OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
+    OPENAI_API_URL = "https://api.openai.com/v1/chat/completions"
+    # Deepseek
+    DEEPSEEK_API_KEY = "DEEPSEEK_API_KEY"
+    DEEPSEEK_API_URL = "https://api.deepseek.com/v1/chat/completions"
+    # Ollama
+    OLLAMA_API_URL = "http://localhost:11434/api/chat"
+
     @classmethod
     def get_version_string(cls) -> str:
         """Ritorna la stringa della versione"""
-        return f"Versione {cls.VERSION} - {cls.VERSION_NAME}"
+        return ""
     
     @classmethod
     def get_save_path(cls) -> str:
@@ -131,3 +138,39 @@ class Config:
             "natural_pause": cls.NATURAL_PAUSE,
             "thinking_pause": cls.THINKING_PAUSE
         }
+    
+    @classmethod
+    def get_provider_config(cls) -> Dict[str, Any]:
+        """Restituisce la configurazione per il provider selezionato"""
+        if cls.PROVIDER == "openai":
+            return {
+                "provider": "openai",
+                "api_url": cls.OPENAI_API_URL,
+                "headers": {
+                    "Content-Type": "application/json",
+                    "Authorization": f"Bearer {cls.OPENAI_API_KEY}"
+                }
+            }
+        elif cls.PROVIDER == "deepseek":
+            return {
+                "provider": "deepseek",
+                "api_url": cls.DEEPSEEK_API_URL,
+                "headers": {
+                    "Content-Type": "application/json",
+                    "Authorization": f"Bearer {cls.DEEPSEEK_API_KEY}"
+                }
+            }
+        elif cls.PROVIDER == "ollama":
+            return {
+                "provider": "ollama",
+                "api_url": cls.OLLAMA_API_URL,
+                "headers": {
+                    "Content-Type": "application/json"
+                }
+            }
+        else:
+            return {
+                "provider": "lmstudio",
+                "api_url": cls.API_URL,
+                "headers": cls.API_HEADERS
+            }
