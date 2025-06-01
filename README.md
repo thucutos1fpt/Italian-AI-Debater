@@ -19,8 +19,8 @@ Un sistema generativo di dibattito tra due intelligenze artificiali, completamen
 ## Installazione
 1. **Clona il repository:**
    ```powershell
-   git clone https://github.com/tuo-utente/ai-debate.git
-   cd italian-ai-debate
+   git clone https://github.com/IDanK0/Italian-AI-Debater
+   cd Italian-AI-Debater
    ```
 2. **Installa le dipendenze:**
    ```powershell
